@@ -44,7 +44,7 @@
 	<div id="header">		
 		<div class="page-full-width cf">
 			<img id="logoimg" src="img/logo-intesasanpaolo.png" width="100px"/>
-			<br><h1>Benvenuto in Java Airlines (v1.0 - prova update)</h1>
+			<br><h1>Benvenuto in Java Airlines (Online Edition)</h1>
 			<div id="login-intro" class="fl">
 				
 			</div> <!-- login-intro -->
