@@ -6,25 +6,12 @@
 	<artifactId>isp-airlines</artifactId>
 
 	<version>0.1.0-SNAPSHOT</version>
-	<name>Ale Conco Java Course: isp-airlines. Openshift Pipeline</name>
+	<name>Ale Conco Java Course: isp-airlines. Openshift Online</name>
 	<description>isp-airlines</description>
 	<packaging>war</packaging>
 
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<distribution>repo</distribution>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-		</license>
-	</licenses>
-
 	<properties>
-		<!-- <project.build.sourceEncoding>ISO8859-1</project.build.sourceEncoding> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- maven-compiler-plugin <maven.compiler.target>1.6</maven.compiler.target> 
-			<maven.compiler.source>1.6</maven.compiler.source> -->
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
@@ -37,36 +24,7 @@
 		<version.war.plugin>2.1.1</version.war.plugin>
 		<jboss-servlet-api_3.0_spec.version>1.0.0.Final</jboss-servlet-api_3.0_spec.version>
 	</properties>
-
-	<organization>
-		<name>ConcoSoftz</name>
-	</organization>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jboss-developer-staging-repository</id>
-			<url>http://nexus-paas.sede.corp.sanpaoloimi.com:8081/repository/maven-public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>jboss-enterprise-maven-repository</id>
-			<url>http://nexus-paas.sede.corp.sanpaoloimi.com:8081/repository/maven-public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<build>
-	    <!-- <finalName>isp-airlines</finalName> -->
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -96,21 +54,9 @@
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
-
-				<!-- <plugin> <artifactId>maven-war-plugin</artifactId> <configuration> 
-					<outputDirectory>webapps</outputDirectory> -->
-				<!--<warName>wotan</warName> http://url/wotan -->
-				<!-- <warName>ROOT</warName> http://url/ -->
-				<!-- </configuration> </plugin> -->
-
 			</plugins>
 		</pluginManagement>
 	</build>
-
-
-
-
-
 
 	<profiles>
 		<profile>
@@ -134,70 +80,6 @@
 				</plugins>
 			</build>
 		</profile>
-
-		<profile>
-			<id>openshift</id>
-			<!-- When built in OpenShift the 'openshift' profile will be used when 
-				invoking mvn. -->
-			<!-- Use this profile for any OpenShift specific customization your app 
-				will need. -->
-			<!-- By default that is to put the resulting archive into the 'deployments' 
-				folder. -->
-			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<finalName>intesasanpaolo-conco-isp-airlines-${project.artifactId}-${project.version}</finalName>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<artifactId>maven-war-plugin</artifactId>
-							<version>${version.war.plugin}</version>
-							<configuration>
-								<outputDirectory>deployments</outputDirectory>
-								<warName>ROOT</warName>
-							</configuration>
-						</plugin>
-
-
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-war-plugin</artifactId>
-							<version>${maven.war.plugin.version}</version>
-							<configuration>
-								<failOnMissingWebXml>false</failOnMissingWebXml>
-								<outputDirectory>./target</outputDirectory>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-
-			<repositories>
-				<repository>
-					<id>jboss-developer-staging-repository</id>
-					<url>http://nexus-paas.sede.corp.sanpaoloimi.com:8081/repository/maven-public/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</repository>
-				<repository>
-					<id>jboss-enterprise-maven-repository</id>
-					<url>http://nexus-paas.sede.corp.sanpaoloimi.com:8081/repository/maven-public/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</repository>
-			</repositories>
-
-		</profile>
 	</profiles>
 
 	<dependencies>
@@ -207,8 +89,5 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		
-		
 	</dependencies>
 </project>
